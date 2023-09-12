@@ -1,0 +1,547 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ------------Navigation styles------------- */
+header {
+    position: sticky;
+    top: 0px;
+    background-color: #7FD3D1;
+    width: 100%;
+    z-index: 999;
+    height: 90px;
+    padding: 0 70px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0,0.5); /* 添加陰影效果 */
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    height: 100%;
+    position: relative;
+}
+
+.logo-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+}
+    /* 添加鼠标悬停效果 */
+    .logo-container:hover {
+        transform: scale(1.05);
+        transition: .53s;
+    }
+
+header .logo-container .logo img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 50px;
+}
+
+
+.nav-btn {
+    display: flex; /* Use flexbox for the container */
+    justify-content: center;
+    flex: 2.7;
+}
+
+.nav-links {
+    flex: 2;
+}
+
+    .nav-links > ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+.nav-link {
+    position: relative;
+}
+
+    .nav-link > a {
+        line-height: 3rem;
+        color: #fff;
+        padding: 0.7rem;
+        letter-spacing: 1px;
+        font-size:1.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: .5s;
+    }
+
+        .nav-link > a > i {
+            margin-left: 0.3rem;
+        }
+
+    .nav-link:hover > a {
+        transform: scale(1.1);
+    }
+
+/* 登入註冊設計 */
+.log-sign {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 0.9;
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: .4rem 1.1rem;
+    font-size: .6rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    line-height: 1;
+    margin: 0 .2rem;
+    transition: .3s;
+    text-transform: uppercase;
+    width: 70px;
+    text-align: center;
+}
+
+    .btn.solid, .btn.log:hover {
+        background-color: #fff;
+        color: #69bde7;
+    }
+
+        .btn.log, .btn.solid:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+    .btn.solid, .btn.sign:hover {
+        background-color: #fff;
+        color: #69bde7;
+    }
+
+        .btn.sign, .btn.solid:hover {
+            background-color: transparent;
+            color: #fff;
+            margin-left: 5px;
+        }
+
+
+.dropdown {
+    position: absolute;
+    top: 75%;
+    right: 0;
+    width: 6.5rem;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+    .dropdown ul {
+        position: relative;
+    }
+
+.dropdown-link > a {
+    display: flex;
+    background-color: #fff;
+    color: #808080;
+    padding: .7rem 1rem;
+    font-size:1rem;
+    align-items: center;
+    justify-content: space-between;
+    transition: .3s;
+    border-radius: 5px; /* Add this line */
+}
+
+.dropdown-link:hover > a {
+    background-color: #92DAD9;
+    color: #fff;
+}
+
+.dropdown-link:not(:nth-last-child(2)) {
+    border-bottom: 1px solid #efefef;
+}
+
+.dropdown-link i {
+    transform: rotate(-90deg);
+}
+
+.dropdown-link {
+    position: relative;
+}
+
+.dropdown.second {
+    top: 0;
+    left: 100%;
+    padding-left: .8rem;
+    cursor: pointer;
+    transform: translateX(10px);
+}
+
+.nav-link:hover > .dropdown,
+.dropdown-link:hover > .dropdown {
+    transform: translate(0, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+/* --------響應式菜單 ----------------*/
+.menu-container {
+    flex: 1;
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.menu {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+    .menu div {
+        width: 1.6rem;
+        height: 3px;
+        border-radius: 3px;
+        background-color: #fff;
+        position: relative;
+        z-index: 1001;
+        transition: .3s;
+    }
+
+        .menu div:before,
+        .menu div:after {
+            content: '';
+            position: absolute;
+            width: inherit;
+            height: inherit;
+            background-color: #fff;
+            border-radius: 3px;
+            transition: .3s;
+        }
+
+        .menu div:before {
+            transform: translateY(-7px);
+        }
+
+        .menu div:after {
+            transform: translateY(7px);
+        }
+
+#check {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 90000;
+    cursor: pointer;
+    opacity: 0;
+    display: none;
+}
+
+    #check:checked ~ .menu-container .menu div {
+        background-color: transparent;
+    }
+
+        #check:checked ~ .menu-container .menu div:before {
+            transform: translateY(0) rotate(-45deg);
+        }
+
+        #check:checked ~ .menu-container .menu div:after {
+            transform: translateY(0) rotate(45deg);
+        }
+
+@keyframes animation {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu-container {
+        display: flex;
+    }
+
+    #check {
+        display: block;
+    }
+
+    .nav-btn {
+        position: fixed;
+        height: calc(100vh - 3rem);
+        top: 3rem;
+        left: 0;
+        width: 100%;
+        background-color: #7FD3D1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        overflow-x: hidden;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: .3s;
+    }
+
+    #check:checked ~ .nav-btn {
+        transform: translateX(0);
+    }
+
+        #check:checked ~ .nav-btn .nav-link,
+        #check:checked ~ .nav-btn .log-sign {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+    .nav-links {
+        flex: initial;
+        width: 100%;
+    }
+
+        .nav-links > ul {
+            flex-direction: column;
+        }
+
+    .nav-link {
+        width: 100%;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+        .nav-link > a {
+            line-height: 0.8;
+            padding: 1.4rem 1.6rem;
+        }
+
+        .nav-link:hover > a {
+            transform: scale(1);
+            background-color: #92DAD9;
+            color: #fff;
+        }
+
+    .dropdown, .dropdown.second {
+        position: initial;
+        top: initial;
+        left: initial;
+        transform: initial;
+        opacity: 1;
+        pointer-events: auto;
+        width: 100%;
+        padding: 0;
+        background-color: #7FD3D1;
+        display: none;
+    }
+
+    .nav-link:hover > .dropdown,
+    .dropdown-link:hover > .dropdown {
+        display: block;
+    }
+
+    .nav-link:hover > a > i,
+    .dropdown-link:hover > a > i {
+        transform: rotate(360deg);
+    }
+
+    .dropdown-link > a {
+        background-color: #fff;
+        color: #808080;
+        padding: 1.2rem 2rem;
+        line-height: 1;
+    }
+
+    .dropdown.second .dropdown-link > a {
+        padding: 1.2rem 2rem 1.2rem 3rem;
+    }
+
+    .dropdown.second .dropdown.second .dropdown-link > a {
+        padding: 1.2rem 2rem 1.2rem 4rem;
+    }
+
+    .dropdown-link:not(:nth-last-child(2)) {
+        border-bottom: none;
+    }
+
+    .dropdown-link:hover > a {
+        background-color: #76D0CE;
+    }
+
+    .nav-link > a > i {
+        font-size: 1.1rem;
+        transform: rotate(-90deg);
+        transition: .3s;
+    }
+
+    .dropdown i {
+        font-size: 1rem;
+        transition: .3s;
+    }
+
+    .log-sign {
+        flex: initial;
+        width: 100%;
+        padding: 1.5rem 1.9rem;
+        justify-content: flex-end;
+        opacity: 0;
+        transform: translateY(15px);
+    }
+}
+
+
+/*登入畫面*/
+h1 {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.login {
+    background-color: rgba(255,255,255,0.3);
+    width: 400px;
+    margin: auto;
+    box-shadow: 0 0 5px #333;
+    margin-top: 5%;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
+.loginbox {
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+
+
+/*表單*/
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auto-style1 {
+    width: 30%;
+    font-size: 16px;
+    height: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+
+
+.auto-style2 {
+    width: 500px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid grey; /* Change border color to white */
+    background-color: transparent;
+}
+
+.auto-style3 {
+    width: 30%;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.auto-style5 {
+    vertical-align: top;
+    padding-left: 10px;
+}
+
+
+.auto-style6 {
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.auto-style7 {
+    width: 35%;
+    height: 60px;
+}
+
+
+.auto-style8 {
+    background-color: transparent;
+    border-radius: 10px;
+    height: 370px;
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+    .input-with-icon i {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+
+    .input-with-icon input {
+        padding-left: 30px;
+    }
+
+/* 原始按鈕樣式 */
+.loginbtn {
+    display: inline-block;
+    padding: .4rem 7rem;
+    font-size: .9rem;
+    border: 2px solid #fff;
+    border-radius: 2rem;
+    line-height: 1.5;
+    margin: 0 .2rem;
+    transition: .3s;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: bold;
+}
+
+    /* 在按鈕上懸停時的樣式 */
+    .loginbtn:hover {
+        background-color: #7FD3D1; /* 替換為您想要的背景顏色 */
+        color: #fff; /* 替換為您想要的文本顏色 */
+    }
+
+    /* 當按鈕有特定類名'solid'時的樣式 */
+    .loginbtn.solid, .loginbtn.transparent:hover {
+        background-color: #fff;
+        color: #69bde7;
+    }
+
+        /* 當按鈕有特定類名'transparent'時的樣式 */
+        .loginbtn.transparent, .loginbtn.solid:hover {
+            background-color: transparent;
+            color: #fff;
+        }
+
+.hy {
+    text-decoration: none;
+    font-size: 14px;
+}

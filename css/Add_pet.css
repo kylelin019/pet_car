@@ -1,0 +1,280 @@
+﻿.form-container {
+    font-family: 'Microsoft YaHei ', sans-serif;
+    font-weight: 500;
+}
+
+.details, .details-2 {
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.form-outer-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center alignment */
+    width: 100%; /* Take full width */
+    height: 100%; /* Take full height */
+    z-index: 9999; /* Adjust as needed */
+    letter-spacing: 0.1rem;
+    padding: 0 20px 0 20px;
+  
+}
+.num-content {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+/* Apply styles to form container */
+.form-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+   
+}
+
+.title {
+    
+    font-family: 'Microsoft YaHei', sans-serif;
+    font-size: 35px;
+    position: relative;
+    font-weight: 500;
+}
+
+    .title::before {
+        content: "";
+        position: absolute;
+        top: 47px;
+        left: 0;
+        bottom: 0;
+        height: 4px;
+        width: 88px;
+        border-radius: 5px;
+        background: linear-gradient(135deg,#8cd7d6 30%,#99dcda 20%, pink );
+    }
+
+.close-icon {
+    margin-left: 570px; /* 添加一些左侧间距 */
+    margin-bottom: 40px;
+    color: #808080;
+    font-size: 40px;
+}
+
+    .close-icon:hover {
+        color: #7FD3D1; /* 悬停时改变颜色 */
+    }
+
+.input-group-1 {
+    font-family: 'Microsoft YaHei', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-row-gap: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 18px;
+    grid-row-gap: 20px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* 调整内部小框之间的上下间距 */
+    width: 130px;
+    letter-spacing: 3px;
+}
+
+.details {
+    margin-bottom: 10px; /* 调整标题下方的间距 */
+}
+/* --------------下拉式------------- */
+/* 共同样式 */
+.input-box select,
+.input-box input[type="text"] {
+    width: 150%;
+    padding: 4px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Microsoft YaHei', sans-serif;
+}
+
+    /* 悬停效果 */
+    .input-box select:hover,
+    .input-box input[type="text"]:hover {
+        background-color: white;
+    }
+
+    /* 选中效果 */
+    .input-box select:focus,
+    .input-box input[type="text"]:focus {
+        outline: none;
+        border-color: #7FD3D1;
+        box-shadow: 0 0 2px #7FD3D1;
+    }
+/* -------xx-------下拉式--------xx----- */
+.input-group-2 {
+    font-family: 'Microsoft YaHei', sans-serif;
+    margin-bottom: 20px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.input-box-2 {
+    letter-spacing: 3px;
+    margin-bottom: 20px; /* 调整内部小框之间的上下间距 */
+}
+
+
+/* 清除单选按钮的默认样式 */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 13px;
+    height: 13px;
+    margin-right: 5px;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+}
+
+    /* 单选按钮选中状态样式 */
+    input[type="radio"]:checked::before {
+        content: '\2022'; /* 使用实心圆点表示选中状态 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 32px;
+        color: #FF69B4;
+    }
+
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+}
+
+.num-btn {
+    display: inline-block;
+    padding: .4rem 3rem;
+    background: #7FD3D1;
+    color: #fff;
+    border: 2px solid #7FD3D1;
+    border-radius: 2rem;
+    line-height: 1.5;
+    margin: 1rem 0.2rem 0.2rem;
+    transition: transform 0.5s ease, background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: 'Microsoft YaHei', sans-serif;
+    transform: scale(1);
+}
+
+
+    /* 在按鈕上懸停時的樣式 */
+    .num-btn:hover {
+        background-color: #fff;
+        color: #7FD3D1;
+        border: 3px solid #7FD3D1;
+        font-weight: 500;
+        font-size: 18px;
+        font-family: 'Microsoft YaHei', sans-serif;
+        transform: scale(1.05);
+    }
+
+/* 原始按鈕樣式 */
+.add-btn {
+    display: inline-block;
+    padding: .4rem 3rem;
+    background: #7FD3D1;
+    color: #fff;
+    border: 2px solid #7FD3D1;
+    border-radius: 2rem;
+    line-height: 1.5;
+    margin: 1rem 0.2rem 0.2rem;
+    transition: transform 0.5s ease, background-color 0.3s ease, color 0.3s ease, font-weight 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 400;
+    font-size:18px;
+    font-family: 'Microsoft YaHei', sans-serif;
+    transform: scale(1);
+}
+
+    /* 在按鈕上懸停時的樣式 */
+    .add-btn:hover {
+        background-color: #fff;
+        color: #7FD3D1;
+        border: 3px solid #7FD3D1;
+        font-weight: 500;
+        font-size: 18px;
+        font-family: 'Microsoft YaHei', sans-serif;
+        transform: scale(1.05);
+    }
+
+
+@media screen and (max-width: 768px) {
+
+    .input-group-1,
+    .input-group-2 {
+       
+        flex-direction: column;
+        z-index: 5;
+        padding-right: 5rem;
+        max-height: 30rem;
+        overflow-y: scroll;
+        flex-wrap: nowrap;
+    }
+
+    .input-box,
+    .input-box-2 {
+        width: 100%;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    /* Center the form title */
+    .title {
+        text-align: center;
+
+    }
+        .title::before {
+            content: ""; /* 添加伪元素内容 */
+            display: block;
+            text-align: center;
+        }
+        /* Adjust font sizes for smaller screens */
+        .details,
+        .details-2 {
+            font-size: 14px;
+        }
+
+    /* Adjust padding/margins for better spacing */
+    .content {
+        padding: 10px;
+        display: block;
+    }
+
+    /* Adjust button width for smaller screens */
+    .add-btn {
+        width: 50%;
+        margin: 0.5rem 0;
+    }
+
+    /* Hide close icon for smaller screens */
+    #closeIcon {
+        display: none;
+    }
+}
